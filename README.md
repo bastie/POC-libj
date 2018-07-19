@@ -1,2 +1,2 @@
 # POC-libj
-proof of concept 
+proof of concept,  libc clone

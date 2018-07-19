@@ -11,4 +11,4 @@
  * @author Sͬeͥbͭaͭsͤtͬian
  *
  */
-package lang.c;
+package lang.libc;

@@ -6,17 +6,10 @@
  *
  * http://www.opensource.org/licenses/bsd-license.php
  */
- 
-package lang.c;
- 
-/**
- * @author Sͬeͥbͭaͭsͤtͬian
- *
- */
-public class stdio {
 
-  /**
-   * indicate end-of-file conditions
-   */
-  public final static int EOF = -1;
+#include <stdio.h>
+
+int main (const int parameterCount,
+		  const char **parameterValue) {
+  printf("Hello, C World!\n");
 }
