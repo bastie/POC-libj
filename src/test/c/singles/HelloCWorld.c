@@ -9,6 +9,9 @@
 
 #include <stdio.h>
 
+/**
+ * A simple <code>Hello World</code> C implementation.
+ */
 int main (const int parameterCount,
 		  const char **parameterValue) {
   printf("Hello, C World!\n");

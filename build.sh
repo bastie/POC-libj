@@ -24,9 +24,9 @@ cd ../../..
 
 # ____pack target
 cd bin
-  find ./lang/libc -name "*.class" >filelist.tmp
+  find ./lang/libc -name "*.class"  >filelist.tmp
+  find ./langx  -name "*.class"    >>filelist.tmp
   jar --create --file libc.jar @filelist.tmp
-  rm -R ./lang/libc
   rm ./filelist.tmp
 cd ..
 
@@ -40,13 +40,13 @@ cd ../../..
 
 # ____clear Java class dir
 cd bin
-  rm -R lang
+#  rm -R lang
 cd ..
 
 # __C
 # ____build C samples
-gcc -o ./bin/singles/HelloCWorld ./src/test/c/singles/HelloCWorld.c -Wall
-
+gcc -o ./bin/singles/HelloCWorld   ./src/test/c/singles/HelloCWorld.c     -Wall
+gcc -o ./bin/singles/CliInput      ./src/test/c/singles/CliInput.c        -Wall
 
 # __Execute
                         ./bin/singles/HelloCWorld
