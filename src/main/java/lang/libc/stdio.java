@@ -9,6 +9,11 @@
  
 package lang.libc;
 
+import java.io.Closeable;
+import java.io.Flushable;
+import java.io.IOException;
+import java.io.OutputStream;
+
 import langx.MutableInteger;
 
 /**
@@ -56,7 +61,12 @@ public class stdio {
 	  System.out.printf(stringToPrint, (Object[]) parametersToIntegrateInString);
   }
   
-  public final static void scanf (String stringFormat, MutableInteger inputResult) {
+  /**
+   * A <code> scanf </code> implementation.
+   * @param __TODO__stringFormat ignored
+   * @param inputResult return value
+   */
+  public final static void scanf (String __TODO__stringFormat, MutableInteger inputResult) {
 	  try {
 		  String s = System.console().readLine();
 		  int newValue = Integer.parseInt(s.split(" ")[0]);
@@ -65,5 +75,32 @@ public class stdio {
 	  catch (Throwable onErrorReturnZero) {
 		  inputResult.setValue(0);
 	  }
+  }
+  
+  public static final FILE stdout = FILE.getStdout();
+  public static final FILE STDOUT_FILENO = FILE.getStdout();
+
+  /**
+   * A simple stream implementation 
+   * @author Sͬeͥbͭaͭsͤtͬian
+   *
+   */
+  public static class FILE {
+	  
+	  /**
+	   * Flag, want to write...
+	   */
+	  private boolean output = false;
+	  /**
+	   * Delegate, to write...
+	   */
+	  private OutputStream outputStreamDelegate;
+	  static FILE getStdout () {
+		  FILE result = new FILE ();
+		  result.output = true;
+		  result.outputStreamDelegate = System.out;
+		  return result;
+	  }
+	  
   }
 }
